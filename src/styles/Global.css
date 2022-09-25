@@ -1,0 +1,68 @@
+:root {
+  --color-primary: #fd377e;
+  --color-primary-2: #e34981;
+  --color-secondary: #03b898;
+  --gray-4: #212529;
+  --gray-3: #868e96;
+  --gray-2: #e9ecef;
+  --grey-1: #f8f9fa;
+  --font-1: "Nunito", cursive;
+}
+
+.title-1 {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 38px;
+}
+.title-2 {
+  font-family: "Nunito";
+  font-weight: bold;
+  font-size: 24px;
+}
+.title-3 {
+  font-family: "Nunito", cursive;
+  font-weight: bold;
+  font-size: 20px;
+}
+.title-4 {
+  font-family: "Nunito", cursive;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+html,
+body,
+div,
+span,
+img,
+main,
+ol,
+ul,
+li,
+form,
+aside,
+header,
+nav,
+section,
+input,
+select,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  box-sizing: border-box;
+  font-family: "Nunito", cursive;
+}
+ul,
+ol {
+  list-style: none;
+}

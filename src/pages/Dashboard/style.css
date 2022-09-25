@@ -1,0 +1,12 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+.container_main-dashboard {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3%;
+  width: 100vw;
+}
