@@ -1,0 +1,68 @@
+.title-card {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 34px;
+  color: var(--gray-4);
+  margin: 10px 0px 10px 0px;
+}
+.list-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.list-green {
+  background: var(--gray-2);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 3%;
+  box-shadow: -4px 0px 0px -1px var(--color-secondary);
+  -webkit-box-shadow: -4px 0px 0px -1px var(--color-secondary);
+  -moz-box-shadow: -4px 0px 0px -1px var(--color-secondary);
+}
+.list-gray {
+  background: var(--gray-2);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 3%;
+  box-shadow: -4px 0px 0px -1px var(--gray-3);
+  -webkit-box-shadow: -4px 0px 0px -1px var(--gray-3);
+  -moz-box-shadow: -4px 0px 0px -1px var(--gray-3);
+  cursor: pointer;
+}
+.div-list-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.title-list {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  margin-bottom: 10px;
+}
+.list-type {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 22px;
+  color: var(--gray-3);
+}
+
+.icon-button {
+  font-size: 14px;
+  padding: 5px;
+  cursor: pointer;
+}
+.icon-button:hover {
+  padding: 5px;
+  background-color: var(--gray-4);
+  color: white;
+  border-radius: 5px;
+  transition: 1s;
+}

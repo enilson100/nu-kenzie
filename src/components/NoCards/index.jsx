@@ -1,4 +1,5 @@
 import noCard from "../../assets/NoCard.svg";
+import "./style.css";
 
 const NoCard = () => {
   return (
