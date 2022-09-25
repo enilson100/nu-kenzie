@@ -1,7 +1,7 @@
 import nuKenzie from "../../assets/nuKenzie.svg";
 import "./style.css";
 
-const Header = () => {
+const Header = ({ handleLandPage }) => {
   return (
     <header className="container__header">
       <div className="div__header-wrap">
@@ -13,7 +13,8 @@ const Header = () => {
           />
         </figure>
         <button
-          /* onClick={() => handleMain()} */ className="button__header-gray"
+          onClick={() => handleLandPage()}
+          className="button__header-gray"
         >
           Início
         </button>

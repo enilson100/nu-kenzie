@@ -10,3 +10,29 @@
   margin-top: 3%;
   width: 100vw;
 }
+.container-pop-up {
+  border: 1px solid var(--gray-2);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 4px;
+  margin-top: 3%;
+}
+.pop-up-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-type {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 22px;
+  color: var(--gray-3);
+}
+.value {
+  display: flex;
+  align-items: center;
+  color: var(--color-primary);
+}

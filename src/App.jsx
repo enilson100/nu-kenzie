@@ -5,6 +5,7 @@ import "./styles/Global.css";
 
 function App() {
   const [isLandPage, setIslandPage] = useState(true);
+  const [data, setData] = useState([]);
 
   function handleLandPage() {
     setIslandPage(!isLandPage);
@@ -15,7 +16,11 @@ function App() {
       {isLandPage ? (
         <LandingPage handleLandPage={handleLandPage} />
       ) : (
-        <DashBoard />
+        <DashBoard
+          handleLandPage={handleLandPage}
+          data={data}
+          setData={setData}
+        />
       )}
     </>
   );
