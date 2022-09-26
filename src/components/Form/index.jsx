@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./style.css";
 
 const Form = ({ setData }) => {
@@ -10,6 +11,7 @@ const Form = ({ setData }) => {
     event.preventDefault();
 
     const data = {
+      id: uuidv4(),
       description,
       value,
       type,

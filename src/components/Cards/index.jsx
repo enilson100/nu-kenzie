@@ -1,13 +1,13 @@
 import { FaTrash } from "react-icons/fa";
 import "./style.css";
 
-const Card = ({ type, value, description, index, filterRemove }) => {
+const Card = ({ type, value, description, id, filterRemove }) => {
   return (
-    <li key={index} className={type === "Entrada" ? "list-green" : "list-gray"}>
+    <li className={type === "Entrada" ? "list-green" : "list-gray"}>
       <div className="div-list-wrap">
         <p className="title-3 title-list">{description}</p>
         <span className="list-type">R$ {value}</span>
-        <button className="button-list" onClick={() => filterRemove(index)}>
+        <button className="button-list" onClick={() => filterRemove(id)}>
           <FaTrash className="icon-button" />
         </button>
       </div>

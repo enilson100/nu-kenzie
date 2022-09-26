@@ -7,7 +7,8 @@ import NoCard from "../../components/NoCards";
 import Card from "../../components/Cards";
 
 const DashBoard = ({ handleLandPage, data, setData }) => {
-  const [dataEnter, setDataEnter] = useState([]);
+  const [listFilter, setListFilter] = useState(null);
+  const tagsButton = document.querySelectorAll(".button");
 
   const sumMoney = data.reduce((acc, atual) => {
     if (atual.type === "Entrada" || atual.type === "") {
@@ -17,25 +18,37 @@ const DashBoard = ({ handleLandPage, data, setData }) => {
     }
   }, 0);
 
-  function filterEnter(handleEnter) {
-    if (handleEnter === "Todos") {
-      setDataEnter([]);
-    } else if (handleEnter === "Entrada") {
-      setDataEnter(data.filter((elem) => elem.type === handleEnter));
+  const listRemove = (id) => {
+    if (listFilter) {
+      setListFilter((oldCardList) =>
+        oldCardList.filter((card) => card.id !== id)
+      );
+      setData((oldCardList) => oldCardList.filter((card) => card.id !== id));
     } else {
-      setDataEnter(data.filter((elem) => elem.type === handleEnter));
+      setData((oldCardList) => oldCardList.filter((card) => card.id !== id));
     }
-  }
-  function filterRemove(index) {
-    const filterDataRemoveData = dataEnter.filter((elem, i) => {
-      return i !== index;
-    });
-    setDataEnter(filterDataRemoveData);
-    const filterDataRemove = data.filter((elem, i) => {
-      return index !== i;
-    });
-    setData(filterDataRemove);
-  }
+  };
+
+  const listFilterAll = (event) => {
+    setListFilter(null);
+
+    tagsButton.forEach((button) => button.classList.remove("selected"));
+    event.target.classList.add("selected");
+  };
+
+  const listFilterEnter = (event) => {
+    setListFilter(() => data.filter(({ type }) => type === "Entrada"));
+
+    tagsButton.forEach((button) => button.classList.remove("selected"));
+    event.target.classList.add("selected");
+  };
+
+  const listFilterExpenses = (event) => {
+    setListFilter(() => data.filter(({ type }) => type === "Despesa"));
+
+    tagsButton.forEach((button) => button.classList.remove("selected"));
+    event.target.classList.add("selected");
+  };
 
   return (
     <div className="container">
@@ -62,59 +75,65 @@ const DashBoard = ({ handleLandPage, data, setData }) => {
             <h2 className="title-nav">Resumo financeiro</h2>
             <div className="nav-wrap">
               <button
-                onClick={() => filterEnter("Todos")}
-                className="button-gray button-nav"
+                onClick={(event) => listFilterAll(event)}
+                className="button-gray button-nav button button-small--selected"
               >
                 Todos
               </button>
               <button
-                onClick={() => filterEnter("Entrada")}
-                className="button-gray button-nav"
+                onClick={(event) => listFilterEnter(event)}
+                className="button-gray button-nav button"
               >
                 Entradas
               </button>
               <button
-                onClick={() => filterEnter("Despesa")}
-                className="button-gray button-nav"
+                onClick={(event) => listFilterExpenses(event)}
+                className="button-gray button-nav button"
               >
                 Despesas
               </button>
             </div>
           </nav>
-          {dataEnter.length > 0 ? (
-            <div className="container-list">
-              <ul className="list-wrap">
-                {dataEnter.map((elem, index) => {
-                  return (
+          {data.length < 1 ? (
+            <>
+              <NoCard />
+            </>
+          ) : listFilter ? (
+            listFilter.length > 0 ? (
+              <div className="container-list">
+                <ul className="list-wrap">
+                  {listFilter.map((elem, index) => (
                     <Card
+                      key={index}
                       type={elem.type}
                       value={elem.value}
                       description={elem.description}
-                      index={index}
-                      filterRemove={filterRemove}
+                      id={elem.id}
+                      filterRemove={listRemove}
                     />
-                  );
-                })}
-              </ul>
-            </div>
-          ) : data.length ? (
-            <div className="container-list">
-              <ul className="list-wrap">
-                {data.map((elem, index) => {
-                  return (
-                    <Card
-                      type={elem.type}
-                      value={elem.value}
-                      description={elem.description}
-                      index={index}
-                      filterRemove={filterRemove}
-                    />
-                  );
-                })}
-              </ul>
-            </div>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <>
+                <NoCard />
+              </>
+            )
           ) : (
-            <NoCard />
+            <div className="container-list">
+              <ul className="list-wrap">
+                {data.map((elem, index) => (
+                  <Card
+                    key={index}
+                    type={elem.type}
+                    value={elem.value}
+                    description={elem.description}
+                    id={elem.id}
+                    filterRemove={listRemove}
+                  />
+                ))}
+              </ul>
+            </div>
           )}
         </section>
       </main>

@@ -71,6 +71,11 @@
   color: var(--grey-1);
   transition: 1s;
 }
+.selected {
+  background-color: var(--color-primary-2);
+  color: var(--grey-1);
+  transition: 1s;
+}
 .nav {
   display: flex;
   align-items: center;
@@ -86,9 +91,7 @@
 .button-nav {
   padding: 0px 40px;
 }
-.button-nav:hover {
-  background-color: var(--color-primary-2);
-}
+
 .container-list {
   width: 95%;
 }
